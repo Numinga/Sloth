@@ -1,1 +1,1 @@
-include ':app', ':sloth'
+include ':app', ':sloth', ':sloth-utils'

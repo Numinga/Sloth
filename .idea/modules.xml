@@ -5,6 +5,7 @@
       <module fileurl="file://$PROJECT_DIR$/Sloth.iml" filepath="$PROJECT_DIR$/Sloth.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/sloth/sloth.iml" filepath="$PROJECT_DIR$/sloth/sloth.iml" />
+      <module fileurl="file://$PROJECT_DIR$/sloth-utils/sloth-utils.iml" filepath="$PROJECT_DIR$/sloth-utils/sloth-utils.iml" />
     </modules>
   </component>
 </project>

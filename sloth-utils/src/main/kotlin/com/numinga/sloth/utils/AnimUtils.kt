@@ -1,4 +1,4 @@
-package com.numinga.sloth.util
+package com.numinga.sloth.utils
 
 import android.animation.*
 import android.os.Build
@@ -12,7 +12,7 @@ import android.view.animation.Transformation
 /**
  * Created by io185011 on 20/02/2018.
  */
-open class AnimationUtil() {
+open class AnimUtils {
 
     interface AnimationEndListener {
         fun onAnimationEnd(animator: Animator)
@@ -33,10 +33,13 @@ open class AnimationUtil() {
                 override fun onAnimationStart(animation: Animator) {
                     animationStartListener.onAnimationStart(animation)
                 }
+
                 override fun onAnimationEnd(animation: Animator) {
                 }
+
                 override fun onAnimationCancel(animation: Animator) {
                 }
+
                 override fun onAnimationRepeat(animation: Animator) {
                 }
             }
@@ -47,11 +50,14 @@ open class AnimationUtil() {
                 override fun onAnimationStart(animation: Animator) {
                     animationStartAndEndListener.onAnimationStart(animation)
                 }
+
                 override fun onAnimationEnd(animation: Animator) {
                     animationStartAndEndListener.onAnimationEnd(animation)
                 }
+
                 override fun onAnimationCancel(animation: Animator) {
                 }
+
                 override fun onAnimationRepeat(animation: Animator) {
                 }
             }
@@ -61,11 +67,14 @@ open class AnimationUtil() {
             return object : Animator.AnimatorListener {
                 override fun onAnimationStart(animation: Animator) {
                 }
+
                 override fun onAnimationEnd(animation: Animator) {
                     animationStartListener.onAnimationEnd(animation)
                 }
+
                 override fun onAnimationCancel(animation: Animator) {
                 }
+
                 override fun onAnimationRepeat(animation: Animator) {
                 }
             }
@@ -169,14 +178,14 @@ open class AnimationUtil() {
 
         fun slideDownOutSlideInUpViews(exitView: View, enterView: View, duration: Int, animationStartListener: AnimationStartListener? = null,
                                        animationEndListener: AnimationEndListener? = null) {
-            val slideOutDown = AnimationUtil.slideDownAndOut(exitView, duration)
-            slideOutDown.addListener(AnimationUtil.getAnimationStartAndEndListener(object : AnimationStartAndEndListener {
+            val slideOutDown = slideDownAndOut(exitView, duration)
+            slideOutDown.addListener(getAnimationStartAndEndListener(object : AnimationStartAndEndListener {
                 override fun onAnimationEnd(animator: Animator) {
                     enterView.visibility = View.VISIBLE
                     exitView.visibility = View.GONE
 
-                    val slideInUp = AnimationUtil.slideInAndUp(enterView, duration)
-                    slideInUp.addListener(AnimationUtil.getAnimationEndListener(object : AnimationUtil.AnimationEndListener {
+                    val slideInUp = slideInAndUp(enterView, duration)
+                    slideInUp.addListener(getAnimationEndListener(object : AnimationEndListener {
                         override fun onAnimationEnd(animator: Animator) {
                             animationEndListener?.onAnimationEnd(animator)
                         }
@@ -254,10 +263,13 @@ open class AnimationUtil() {
                 animator.addListener(object : Animator.AnimatorListener {
                     override fun onAnimationRepeat(p0: Animator?) {
                     }
+
                     override fun onAnimationCancel(p0: Animator?) {
                     }
+
                     override fun onAnimationEnd(p0: Animator?) {
                     }
+
                     override fun onAnimationStart(p0: Animator?) {
                         view.visibility = View.VISIBLE
                     }
@@ -287,7 +299,7 @@ open class AnimationUtil() {
 }
 
 fun View.circularRevealFromCenter(duration: Int = 500, startDelay: Long = 0, interpolator: TimeInterpolator? = null) {
-    val animator = AnimationUtil.circularRevealFromCenter(this, duration)
+    val animator = AnimUtils.circularRevealFromCenter(this, duration)
 
     animator.startDelay = startDelay
     interpolator?.let { animator.interpolator = it }
@@ -299,6 +311,6 @@ fun View.circularRevealFromCenter(duration: Int = 500, startDelay: Long = 0, int
 
 fun View.enterFromBottomScreen(duration: Long = 500, startDelay: Long = 0, interpolator: TimeInterpolator? = null) {
     post({
-        AnimationUtil.enterFromBottomScreen(this, duration, startDelay, interpolator).start()
+        AnimUtils.enterFromBottomScreen(this, duration, startDelay, interpolator).start()
     })
 }
