@@ -9,7 +9,8 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
-            <option value="$PROJECT_DIR$/sloth" />
+            <option value="$PROJECT_DIR$/sloth-core" />
+            <option value="$PROJECT_DIR$/sloth-redux" />
             <option value="$PROJECT_DIR$/sloth-utils" />
           </set>
         </option>

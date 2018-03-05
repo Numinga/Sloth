@@ -1,4 +1,4 @@
-package com.numinga.sloth.utils;
+package com.numinga.sloth.redux;
 
 import org.junit.Test;
 

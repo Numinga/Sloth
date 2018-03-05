@@ -13,9 +13,11 @@ import java.lang.Exception
 /**
  * Created by io185011 on 20/02/2018.
  */
-class ViewUtils {
+open class ViewUtil {
+
     companion object {
-        val TAG : String = ViewUtils::class.toString()
+
+        val TAG: String = ViewUtil::class.toString()
 
         fun dpToPx(dp: Int): Int {
             return (dp * Resources.getSystem().displayMetrics.density).toInt()
@@ -70,5 +72,4 @@ class ViewUtils {
             return viewBitmap
         }
     }
-
 }

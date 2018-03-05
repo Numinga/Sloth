@@ -12,7 +12,7 @@ import android.view.animation.Transformation
 /**
  * Created by io185011 on 20/02/2018.
  */
-open class AnimUtils {
+open class AnimUtil {
 
     interface AnimationEndListener {
         fun onAnimationEnd(animator: Animator)
@@ -295,11 +295,10 @@ open class AnimUtils {
             return animator
         }
     }
-
 }
 
 fun View.circularRevealFromCenter(duration: Int = 500, startDelay: Long = 0, interpolator: TimeInterpolator? = null) {
-    val animator = AnimUtils.circularRevealFromCenter(this, duration)
+    val animator = AnimUtil.circularRevealFromCenter(this, duration)
 
     animator.startDelay = startDelay
     interpolator?.let { animator.interpolator = it }
@@ -311,6 +310,6 @@ fun View.circularRevealFromCenter(duration: Int = 500, startDelay: Long = 0, int
 
 fun View.enterFromBottomScreen(duration: Long = 500, startDelay: Long = 0, interpolator: TimeInterpolator? = null) {
     post({
-        AnimUtils.enterFromBottomScreen(this, duration, startDelay, interpolator).start()
+        AnimUtil.enterFromBottomScreen(this, duration, startDelay, interpolator).start()
     })
 }
